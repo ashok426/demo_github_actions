@@ -71,11 +71,11 @@ jobs:
           client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_5A2A6F1CE043466EBA5F7BE0DB37028C }}
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_3411CBDD282148FDADAB15114CDB2BAA }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_3A8790B1DEAA4F5599AE54B389AF4F66 }}
+          client-secret: ${{ secrets.AZURE_CLIENT_SECRET }}
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v3
-        id: deploy-to-webapp
         with:
           app-name: 'simplecalculatordemo'
-          slot-name: 'Production'
+          package: .
           
